@@ -1,0 +1,20 @@
+[package]
+name = "simple_vault"
+version = "0.1.0"
+
+# See more keys and their definitions at https://docs.swmansion.com/scarb/docs/reference/manifest
+
+[dependencies]
+openzeppelin = {git = "https://github.com/enitrat/cairo-contracts", branch = "cairo-1"}
+
+[[target.starknet-contract]]
+# Enable Sierra codegen.
+sierra = true
+# Enable CASM codegen.
+casm = true
+name = "compiled"
+
+[scripts]
+gen-project = "sh scripts/generate_cairo_project.sh"
+test-cairo = "cairo-test --starknet ."
+test-devnet = "npm test"
